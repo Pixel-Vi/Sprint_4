@@ -18,8 +18,6 @@ public class AboutRenter {
     private final By telephone = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");
     private final By buttonNext = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
     private final String nameStateMetro = ".//button[@value='%s']";
-    private final By yandexButton = By.xpath(".//*[@alt='Yandex']");
-    private final By scooterButton = By.xpath(".//*[@alt='Scooter']");
 
     public AboutRenter(WebDriver driver) {
         this.driver = driver;
@@ -66,10 +64,4 @@ public class AboutRenter {
         driver.findElement(buttonNext).click();
     }
 
-    public void clickYandex() {
-        driver.findElement(yandexButton).click();
-    }
-    public void clickScooter() {
-        driver.findElement(scooterButton).click();
-    }
 }

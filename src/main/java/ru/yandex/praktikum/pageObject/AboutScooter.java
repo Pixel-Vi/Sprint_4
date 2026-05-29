@@ -18,8 +18,6 @@ public class AboutScooter {
     private final By colourGrey = By.id("grey");
     private final By comment = By.xpath(".//input[@placeholder='Комментарий для курьера']");
     private final By createOrderButton = By.xpath(".//button[@class='Button_Button__ra12g Button_Middle__1CSJM']");
-    private final By yandexButton = By.xpath(".//*[@alt='Yandex']");
-    private final By scooterButton = By.xpath(".//*[@alt='Scooter']");
 
     public AboutScooter(WebDriver driver) {
         this.driver = driver;
@@ -66,11 +64,4 @@ public class AboutScooter {
         click(createOrderButton);
     }
 
-    public void clickYandex() {
-        click(yandexButton);
-    }
-
-    public void clickScooter() {
-        click(scooterButton);
-    }
 }

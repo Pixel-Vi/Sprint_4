@@ -9,8 +9,6 @@ import java.time.Duration;
 
 public class OrderStatus {
     WebDriver driver;
-    private final By yandexButton = By.xpath(".//*[@alt='Yandex']");
-    private final By scooterButton = By.xpath(".//*[@alt='Scooter']");
     private final By notFound = By.xpath(".//*[@alt='Not found']");
 
     public OrderStatus(WebDriver driver) {
@@ -23,11 +21,6 @@ public class OrderStatus {
         return this;
     }
 
-    public void clickYandex() {
-        driver.findElement(yandexButton).click();
-    }
-
-    public void clickScooter() {
-        driver.findElement(scooterButton).click();
+    public void waitLoadOrderStatusPage() {
     }
 }
