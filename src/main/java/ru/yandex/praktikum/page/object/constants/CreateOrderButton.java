@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.pageObject.constants;
+package ru.yandex.praktikum.page.object.constants;
 
 public enum CreateOrderButton {
     UP_BUTTON,

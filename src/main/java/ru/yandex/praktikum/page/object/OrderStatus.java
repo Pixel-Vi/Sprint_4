@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.pageObject;
+package ru.yandex.praktikum.page.object;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,12 +15,17 @@ public class OrderStatus {
         this.driver = driver;
     }
 
-    public OrderStatus waitLoadOrderStatusPade() {
+    public OrderStatus waitLoadOrderStatusPage() {
         new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(notFound));
         return this;
     }
 
-    public void waitLoadOrderStatusPage() {
+    public boolean isNotFoundImageDisplayed() {
+        try {
+            return driver.findElement(notFound).isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
     }
 }

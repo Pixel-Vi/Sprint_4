@@ -1,25 +1,22 @@
-package ru.yandex.praktikum.pageObject;
+package ru.yandex.praktikum.page.tests;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import ru.yandex.praktikum.page.object.AboutRenter;
+import ru.yandex.praktikum.page.object.AboutScooter;
+import ru.yandex.praktikum.page.object.HomePage;
+import ru.yandex.praktikum.page.object.PopUpWindow;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import static ru.yandex.praktikum.pageObject.constants.CreateOrderButton.DOWN_BUTTON;
-import static ru.yandex.praktikum.pageObject.constants.CreateOrderButton.UP_BUTTON;
-import static ru.yandex.praktikum.pageObject.constants.RentDurationConstants.*;
-import static ru.yandex.praktikum.pageObject.constants.ScooterColours.*;
+import static ru.yandex.praktikum.page.object.constants.CreateOrderButton.DOWN_BUTTON;
+import static ru.yandex.praktikum.page.object.constants.CreateOrderButton.UP_BUTTON;
+import static ru.yandex.praktikum.page.object.constants.RentDurationConstants.*;
+import static ru.yandex.praktikum.page.object.constants.ScooterColours.*;
 
 @RunWith(Parameterized.class)
-public class OrderCreateTest {
-    private WebDriver driver;
-    private final String site = "https://qa-scooter.praktikum-services.ru/";
+public class OrderCreateTest extends BaseTest {
     private final String name;
     private final String surname;
     private final String address;
@@ -54,17 +51,7 @@ public class OrderCreateTest {
         };
     }
 
-    @Before
-    public void startUp() {
-        WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
-        driver.get(site);
-    }
 
-    @After
-    public void teardown() {
-        driver.quit();
-    }
 
     @Test
     public void testCreateOrderWithUpButton() {
