@@ -1,0 +1,31 @@
+package ru.yandex.praktikum.page.object;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
+
+public class OrderStatus {
+    WebDriver driver;
+    private final By notFound = By.xpath(".//*[@alt='Not found']");
+
+    public OrderStatus(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public OrderStatus waitLoadOrderStatusPage() {
+        new WebDriverWait(driver, Duration.ofSeconds(10))
+                .until(ExpectedConditions.presenceOfElementLocated(notFound));
+        return this;
+    }
+
+    public boolean isNotFoundImageDisplayed() {
+        try {
+            return driver.findElement(notFound).isDisplayed();
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return false;
+        }
+    }
+}
